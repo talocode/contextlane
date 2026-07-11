@@ -1,0 +1,49 @@
+{
+  "name": "@talocode/contextlane",
+  "version": "0.1.0",
+  "description": "Open-source context ingestion pipeline for persistent AI agents — turn files, folders, URLs, repos, and notes into structured memory with citations",
+  "type": "module",
+  "bin": {
+    "contextlane": "dist/cli.cjs"
+  },
+  "main": "dist/index.cjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "node scripts/test.mjs",
+    "prepublishOnly": "npm run build",
+    "start:api": "node dist/server.js",
+    "start:mcp": "node dist/mcp.js",
+    "demo": "node dist/cli.js demo"
+  },
+  "keywords": [
+    "context", "ai-agents", "memory", "ingestion", "mcp",
+    "sdk", "cli", "talocode", "persistent-intelligence", "open-source"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^13.1.0",
+    "@modelcontextprotocol/sdk": "^1.13.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.0",
+    "@types/node": "^22.15.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
