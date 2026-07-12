@@ -8,15 +8,16 @@ Turn files, folders, URLs, repos, and notes into structured context with citatio
 
 ## Install
 
+### npm (TypeScript / Node.js)
 ```bash
 npm install -g @talocode/contextlane
 contextlane demo
 ```
 
-Or try without installing:
-
+### pip (Python)
 ```bash
-npx @talocode/contextlane demo
+pip install contextlane
+contextlane demo
 ```
 
 ## Quick Usage
@@ -106,12 +107,22 @@ curl -X POST http://localhost:3060/v1/contextlane/recall \
 
 ## SDK
 
+### TypeScript
 ```typescript
 import { ContextLaneClient } from '@talocode/contextlane'
 
 const client = new ContextLaneClient({ baseUrl: 'http://localhost:3060' })
 const run = await client.ingest({ input: './README.md', type: 'file' })
 const recall = await client.recall({ query: 'What is this?' })
+```
+
+### Python
+```python
+from contextlane import ContextLaneClient
+
+client = ContextLaneClient('http://localhost:3060')
+run = client.ingest('./README.md')
+results = client.search('What is this?')
 ```
 
 ## MCP
@@ -152,6 +163,7 @@ gatelane policy allow contextlane.contextlane_recall
 ## Links
 
 - npm: [@talocode/contextlane](https://www.npmjs.com/package/@talocode/contextlane)
+- PyPI: [contextlane](https://pypi.org/project/contextlane/)
 - GitHub: [github.com/talocode/contextlane](https://github.com/talocode/contextlane)
 - Docs: [docs/](docs/)
 

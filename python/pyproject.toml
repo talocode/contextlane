@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "contextlane"
+version = "0.2.0"
+description = "Open-source context ingestion pipeline for persistent AI agents"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+  { name = "Talocode" },
+]
+keywords = ["context", "ai-agents", "memory", "ingestion", "mcp", "sdk", "cli", "talocode"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Homepage = "https://github.com/talocode/contextlane"
+Source = "https://github.com/talocode/contextlane"
+npm = "https://www.npmjs.com/package/@talocode/contextlane"
+
+[project.scripts]
+contextlane = "contextlane.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
