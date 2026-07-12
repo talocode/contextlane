@@ -1,6 +1,6 @@
 {
   "name": "@talocode/contextlane",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Open-source context ingestion pipeline for persistent AI agents — turn files, folders, URLs, repos, and notes into structured memory with citations",
   "type": "module",
   "bin": {
@@ -21,13 +21,12 @@
     "CHANGELOG.md"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "node scripts/build.mjs",
     "test": "node scripts/test.mjs",
-    "prepublishOnly": "npm run build",
-    "start:api": "node dist/server.js",
-    "start:mcp": "node dist/mcp.js",
-    "demo": "node dist/cli.js demo"
+    "prepublishOnly": "npm test",
+    "start:api": "node dist/server.cjs",
+    "start:mcp": "node dist/mcp.cjs",
+    "demo": "node dist/cli.cjs demo"
   },
   "keywords": [
     "context", "ai-agents", "memory", "ingestion", "mcp",
@@ -39,9 +38,7 @@
     "@modelcontextprotocol/sdk": "^1.13.0"
   },
   "devDependencies": {
-    "tsup": "^8.4.0",
-    "typescript": "^5.8.0",
-    "@types/node": "^22.15.0"
+    "esbuild": "^0.25.0"
   },
   "engines": {
     "node": ">=18"

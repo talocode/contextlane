@@ -61,7 +61,7 @@ Extracted from every run:
 
 | Type | Examples |
 |------|----------|
-| File | .md, .txt, .json, .csv, .ts, .js, .py, .go, .rs, .css, .html, .yaml, .sh, +40 more |
+| File | .md, .txt, .json, .csv, .pdf, .ts, .js, .py, .go, .rs, .css, .html, .yaml, .sh, +40 more |
 | Folder | Recursive, auto-ignores node_modules/.git/dist/build/.next/coverage |
 | URL | Public URLs, extracts readable text from HTML |
 | GitHub | Clones depth 1, ingests README/docs/src |

@@ -1,6 +1,7 @@
 export { ingest, loadRun, listRuns, search, exportRun, syncToMemoryLane } from './core/orchestrator.js'
 export { importRun } from './core/export-import.js'
 export { isCloudMode, requireApiKey } from './core/auth.js'
+export { isPdf } from './core/file-loader.js'
 export { ContextLaneClient, createContextLaneClient } from './sdk.js'
 export type * from './core/schema.js'
 export type { SearchResult } from './core/search.js'

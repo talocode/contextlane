@@ -22,3 +22,17 @@ Initial release.
 - Cloud auth mode gated by TALOCODE_API_KEY
 - Install scripts for Linux/macOS/Windows/Termux
 - Demo mode
+
+## v0.2.0 (2026-07-11)
+
+### Added
+- PDF ingestion support via `pdftotext` (requires poppler-utils)
+- Improved URL HTML text extraction (strips nav/footer/header/aside, entity decoding, dedup)
+- Cleaner build pipeline using esbuild directly (no tsup dependency)
+- `isPdf()` export in SDK for detecting PDF files
+- Better error messages for missing external dependencies
+
+### Fixed
+- Build pipeline no longer requires tsup (esbuild used directly)
+- URL content quality improved with smarter HTML stripping
+- Package.json scripts work without npm install hanging

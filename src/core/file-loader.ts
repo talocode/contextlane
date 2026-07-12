@@ -1,6 +1,8 @@
 import { readFileSync, statSync } from 'node:fs'
 import { extname } from 'node:path'
 import { SourceNotFound, SourceTooLarge } from './errors.js'
+import { isPdf, loadPdf } from './pdf-loader.js'
+export { isPdf }
 
 const MAX_SIZE = 10 * 1024 * 1024
 const TEXT_EXTENSIONS = new Set([
@@ -22,9 +24,15 @@ export function loadFile(path: string, force?: boolean): LoadedFile {
   if (!force) {
     const s = statSync(path)
     if (!s.isFile()) throw new SourceNotFound(path)
-    if (s.size > MAX_SIZE) throw new SourceTooLarge(path, s.size, MAX_SIZE)
+    if (s.size > MAX_SIZE && !isPdf(path)) throw new SourceTooLarge(path, s.size, MAX_SIZE)
   }
   const ext = extname(path).toLowerCase()
+
+  if (isPdf(path)) {
+    const pdf = loadPdf(path, force)
+    return { text: pdf.text, lines: pdf.lines, path, ext }
+  }
+
   const text = readFileSync(path, 'utf-8')
   const lines = text.split('\n')
   return { text, lines, path, ext }

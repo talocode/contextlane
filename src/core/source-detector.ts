@@ -1,5 +1,5 @@
 import { existsSync, statSync } from 'node:fs'
-import { isAbsolute, resolve } from 'node:path'
+import { extname, isAbsolute, resolve } from 'node:path'
 
 export interface DetectedSource {
   type: 'file' | 'folder' | 'url' | 'github'

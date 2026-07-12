@@ -13,6 +13,10 @@ export interface LoadedFolderItem {
   ext: string
 }
 
+export function isTextOrPdfExt(ext: string): boolean {
+  return isTextFile(ext) || ext === '.pdf'
+}
+
 export function loadFolder(folderPath: string, includePatterns?: string[], excludePatterns?: string[]): LoadedFolderItem[] {
   const items: LoadedFolderItem[] = []
 
@@ -34,7 +38,7 @@ export function loadFolder(folderPath: string, includePatterns?: string[], exclu
       } else if (s.isFile()) {
         const ext = entry.includes('.') ? entry.slice(entry.lastIndexOf('.')).toLowerCase() : ''
         if (IGNORE_FILES.has(entry)) continue
-        if (!isTextFile(ext) && !includePatterns) continue
+        if (!isTextFile(ext) && ext !== '.pdf' && !includePatterns) continue
         try {
           const file = loadFile(fullPath, true)
           items.push({
